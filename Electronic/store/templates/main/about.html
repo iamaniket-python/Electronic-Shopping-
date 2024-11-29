@@ -1,0 +1,57 @@
+{%extends 'main/index.html'%}
+{%block body%}
+{%load static%}
+
+<section id="blog" class="section-padding">
+    <div class="container">
+        <div class="row">
+            <div class="col-12 text-center" data-aos="fade-down" data-aos-delay="150">
+                <div class="section-title">
+                    <h1 class="display-4 fw-semibold">About Us</h1>
+                    <div class="line"></div>
+                    <h1>Smart Fashion<br>
+                        <b style="font-size: 50px;">With Smart Devices</b></h1>
+                        
+                </div>
+            </div>
+            <h5 style="color: #3a3a3a;" class="text-center" data-aos="fade-up">we're dedicated to empowering your shopping experience with every click. We combine passion with convenience to deliver quality products that enhance your life, one exceptional item at a time. Our commitment to excellence and innovation ensures that your satisfaction is always our top priority..<br>where we merge passion with convenience to offer you the finest products and unparalleled service. Our mission is to provide a seamless shopping experience, driven by a dedication to quality and a genuine commitment to making your satisfaction our primary goal.</h5>
+            
+        </div>
+        <div class="container mt-5">
+        <div style="margin-left: 15%;" class="row">
+            <div  class="col-md-4" data-aos="fade-down" data-aos-delay="150">
+                <div class="team-member image-zoom">
+                    <div class="image-zoom-wrapper">
+                        <img src="{% static 'assets/image/logo/truck.gif'%}" height="50" width="100" alt="">
+                    </div>
+                    <h5 class="mt-4">Free Shipping</h5>
+                    <p>Capped at $39 per order</p>
+                   
+                </div>
+            </div>
+            <div class="col-md-4" data-aos="fade-down" data-aos-delay="250">
+                <div class="team-member image-zoom">
+                    <div class="image-zoom-wrapper">
+                        <img src="{% static 'assets/image/logo/tap-to-pay.gif'%}" height="50" width="100" alt="">
+                    </div>
+                    <h5 class="mt-4">Card Payments</h5>
+                    <p>12 Months Installments
+                    </p>
+                   
+                </div>
+            </div>
+            <div class="col-md-4" data-aos="fade-down" data-aos-delay="350">
+                <div class="team-member image-zoom">
+                    <div class="image-zoom-wrapper">
+                        <img src="{% static 'assets/image/logo/return-of-investment.gif'%}" height="50" width="100" alt="">
+                    </div>
+                    <h5 class="mt-4">Easy Returns</h5>
+                    <p>Shop With Confidence</p>
+                   
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</section>
+{%endblock%}

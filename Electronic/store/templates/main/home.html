@@ -1,0 +1,243 @@
+{%extends 'main/index.html'%}
+{%block body%}
+{%load static%}
+ <!-- HERO -->
+ <style>
+    #product1{
+        text-align: center;
+      }
+      
+      #product1 .pro-container{
+      display: flex;
+      justify-content: space-between;
+      padding-top: 20px;
+      flex-wrap: wrap
+      }
+      
+      #product1 .pro{
+        width: 23%;
+        min-width: 250px;
+        padding: 10px 12px;
+        border: 1px solid #cce7d0;
+        border-radius: 25px;
+        cursor: pointer;
+        box-shadow: 20px 20px 30px rgba(0, 0, 0, 0.02);
+        margin: 15px 0;
+        transition: 0.2s ease;
+        position: relative;
+      }
+      
+      #product .pro:hover{
+         box-shadow: 20px 20px 30px rgba(0, 0, 0, 0.06);
+      }
+      
+      #product1 .pro img{
+        width: 100%;
+        border-radius: 20px;
+      }
+      
+      #product1 .pro .des{
+        text-align: start;
+        padding: 10px 0;
+      }
+      
+      #product1 .pro .des span{
+        color: #606063;
+        font-size: 12px;
+      }
+      
+      #product1 .pro .des h5{
+        padding-top: 7px;
+        color: #1a1a1a;
+        font-size: 14px;
+      }
+      
+      #product1 .pro .des i{
+        font-size: 12px;
+        color: rgb(243, 181, 25)
+      }
+      
+      #product1 .pro .des h4{
+        font-size: 15px;
+        padding-top: 7px;
+        font-weight: 700;
+        color: #088178;
+      }
+      
+      #product1 .pro .cart{
+        width: 40px;
+        height: 40px;
+        line-height: 40px;
+        border-radius: 50px;
+        background-color: #e8f6ea;
+        font-weight: 500;
+        color: #088178;
+        border: 1px solid #cce7d0;
+        position: absolute;
+        bottom: 20px;
+        right: 10px;
+        
+      }
+    #product1 .pro-container{
+    justify-content: start;
+  }
+  
+  #product1 .pro{
+    margin: 15px;
+  }
+  
+</style>
+ <section id="hero" class="min-vh-100 d-flex align-items-center text-center">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <h1 data-aos="fade-left" class="text-uppercase text-white fw-semibold display-1">Your Home Smart Devices & Best Solutions</h1>
+                <!-- <h5 class="text-white mt-3 mb-4" data-aos="fade-right">Your Home Smart Devices & Best Solutions</h5> -->
+                <div data-aos="fade-up" data-aos-delay="50">
+                    <a style="border-radius: 0px;" href="product.html" class="btn btn-brand me-2">Shop All Devices</a>
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+
+
+<!-- SERVICES -->
+<section id="services" class="section-padding border-top">
+    <div class="container">
+        <div class="row">
+            <div class="col-12 text-center" data-aos="fade-down" data-aos-delay="150">
+                <div class="section-title">
+                    <h1 class="display-4 fw-semibold">Products</h1>
+                    <div class="line"></div>
+                    <p>Products are the result of innovative development and marketing efforts designed to meet consumer needs and drive economic and social impact</p>
+                </div>
+            </div>
+        </div>
+    <section id="product1" class="section-p1">
+    
+            <div class="pro-container "data-aos="fade-down" data-aos-delay="150">
+                {% for prod in product%}
+                <div class="pro" >
+                    <h4><span class="badge bg-secondary">{{prod.condition}}</span></h4>
+                    <a href="/products/{{prod.id}}" class="image">
+                        <img  src="/{{prod.image}}">
+                <div class="des">
+                    <span>{{prod.Category}}</span>
+                    <h5>{{prod.name | truncatewords:8}}</h5>
+                    <div class="star">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    </div>
+                    <h4>₹ {{prod.price}}</h4>
+                </div> 
+               
+                <a href="{% url 'cart_add' prod.id %}"><i class="fal fa-shopping-cart cart"></i></a>
+               
+            </div>
+            {%endfor%}
+        </div>
+    </div>
+</section>
+
+
+
+
+<section id="counter" class="section-padding">
+    <div class="container text-center">
+      
+      <h1 data-aos="fade-left" class="text-uppercase text-white fw-semibold display-1">Smart Fashion
+        With Smart Devices</h1>
+        <a href="#" class="btn btn-brand me-2">Shop All Devices</a>
+    </div>
+</section>
+
+<!-- PORTFOLIO -->
+
+<!-- REVIEW -->
+<section id="reviews" class="section-padding bg-light">
+    <div class="container">
+        <div class="row">
+            <div class="col-12 text-center" data-aos="fade-down" data-aos-delay="150">
+                <div class="section-title">
+                    <h1 class="display-4 fw-semibold">Testimonials</h1>
+                    <div class="line"></div>
+                  
+                </div>
+            </div>
+        </div>
+        <div class="row gy-5 gx-4">
+            <div class="col-lg-4 col-sm-6" data-aos="fade-down" data-aos-delay="150">
+                <div class="review">
+                    <div class="review-head p-4 bg-white theme-shadow">
+                        <div class="text-warning">
+                            <i class="ri-star-fill"></i>
+                            <i class="ri-star-fill"></i>
+                            <i class="ri-star-fill"></i>
+                            <i class="ri-star-fill"></i>
+                            <i class="ri-star-fill"></i>
+                        </div>
+                        <p>I'm using this app for many years and I have been impressed with the great deals, offers, and products available. However, one major downside to the app nowadays is that it is very slow and lags significantly when the back key is pressed.</p>
+                    </div>
+                    <div class="review-person mt-4 d-flex align-items-center">
+                        <img class="rounded-circle" src="./assets/images/avatar-1.jpg" alt="">
+                        <div class="ms-3">
+                            <h5>Aniket Shrivastava</h5>
+                          
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 col-sm-6" data-aos="fade-down" data-aos-delay="250">
+                <div class="review">
+                    <div class="review-head p-4 bg-white theme-shadow">
+                        <div class="text-warning">
+                            <i class="ri-star-fill"></i>
+                            <i class="ri-star-fill"></i>
+                            <i class="ri-star-fill"></i>
+                            <i class="ri-star-fill"></i>
+                            <i class="ri-star-fill"></i>
+                        </div>
+                        <p>I recently had an experience shopping on this application and I wanted to share my thoughts. Positive Aspects: Wide Range of Products: I appreciate the extensive selection of items available. It’s easy to find almost anything I need. </p>
+                    </div>
+                    <div class="review-person mt-4 d-flex align-items-center">
+                        <img class="rounded-circle" src="./assets/images/avatar-2.jpg" alt="">
+                        <div class="ms-3">
+                            <h5>Keshav Singh</h5>
+                            
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 col-sm-6" data-aos="fade-down" data-aos-delay="350">
+                <div class="review">
+                    <div class="review-head p-4 bg-white theme-shadow">
+                        <div class="text-warning">
+                            <i class="ri-star-fill"></i>
+                            <i class="ri-star-fill"></i>
+                            <i class="ri-star-fill"></i>
+                            <i class="ri-star-fill"></i>
+                            <i class="ri-star-fill"></i>
+                        </div>
+                        <p>Recent issue spoils as excellent app. I have been using this platform and the aap for a very long time and never had any issues and it still is such a great app. Recently.</p>
+                    </div>
+                    <div class="review-person mt-4 d-flex align-items-center">
+                        <img class="rounded-circle" src="./assets/images/avatar-3.jpg" alt="">
+                        <div class="ms-3">
+                            <h5>Rahul Singh</h5>
+                         
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+        </div>
+    </div>
+</section>
+{%endblock%}

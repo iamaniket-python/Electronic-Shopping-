@@ -1,0 +1,312 @@
+<div class="row">
+    <div class="col-sm-4">
+      <div class="card">
+        <main>
+          <h1 class="visually-hidden">Sidebars examples</h1>
+        
+          <div class="d-flex flex-column flex-shrink-0 p-3 text-white bg-dark" style="width: 280px;">
+            <a href="/" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-white text-decoration-none">
+              <svg class="bi me-2" width="40" height="32"><use xlink:href="#bootstrap"/></svg>
+              <span class="fs-4">Sidebar</span>
+            </a>
+            <hr>
+            <ul class="nav nav-pills flex-column mb-auto">
+              <li class="nav-item">
+                <a href="#" class="nav-link active" aria-current="page">
+                  <svg class="bi me-2" width="16" height="16"><use xlink:href="#home"/></svg>
+                  Home
+                </a>
+              </li>
+              <li>
+                <a href="#" class="nav-link text-white">
+                  <svg class="bi me-2" width="16" height="16"><use xlink:href="#speedometer2"/></svg>
+                  Dashboard
+                </a>
+              </li>
+              <li>
+                <a href="#" class="nav-link text-white">
+                  <svg class="bi me-2" width="16" height="16"><use xlink:href="#table"/></svg>
+                  Orders
+                </a>
+              </li>
+              <li>
+                <a href="#" class="nav-link text-white">
+                  <svg class="bi me-2" width="16" height="16"><use xlink:href="#grid"/></svg>
+                  Products
+                </a>
+              </li>
+              <li>
+                <a href="#" class="nav-link text-white">
+                  <svg class="bi me-2" width="16" height="16"><use xlink:href="#people-circle"/></svg>
+                  Customers
+                </a>
+              </li>
+            </ul>
+            <hr>
+            <div class="dropdown">
+              <a href="#" class="d-flex align-items-center text-white text-decoration-none dropdown-toggle" id="dropdownUser1" data-bs-toggle="dropdown" aria-expanded="false">
+                <img src="https://github.com/mdo.png" alt="" width="32" height="32" class="rounded-circle me-2">
+                <strong>mdo</strong>
+              </a>
+              <ul class="dropdown-menu dropdown-menu-dark text-small shadow" aria-labelledby="dropdownUser1">
+                <li><a class="dropdown-item" href="#">New project...</a></li>
+                <li><a class="dropdown-item" href="#">Settings</a></li>
+                <li><a class="dropdown-item" href="#">Profile</a></li>
+                <li><hr class="dropdown-divider"></li>
+                <li><a class="dropdown-item" href="#">Sign out</a></li>
+              </ul>
+            </div>
+          </div>
+        
+    <div class="col-sm-8">
+      <div class="card">
+        <div class="card-body">
+            
+            <div class="row row-cols-1 row-cols-md-3 g-4 " data-aos="fade-up">
+                {% for prod in product %}
+                <div class="col">
+                    <div class="card shadow">
+                        <h1><span class="badge text-bg-dark">{{prod.condition}}</span></h1>
+                        <img style="height:400px;"src="/{{prod.image}}" class="card-img-top" alt="product"> 
+                        <div class="card-footer bg-gray-200 border-top border-gray-300 p-4">
+                            <h5 class="card-title">{{prod.name | truncatewords:4 }}</h5>
+                            <h3 style="color:blue;" class="h6  mt-2">{{prod.Category }}</h3>
+                            
+                            <div class="d-flex justify-content-between align-items-center mt-3">
+                                <span class="h6 mb-0 text-gray">₹{{prod.price}}</span> 
+                                <a class="btn btn-xs btn-tertiary" href="#">
+                                    <span class="fas fa-cart-plus me-2"></span> Add to cart
+                                </a>
+                                <a class="btn-tertiary ms-auto" href="#">
+                                    <!-- Button trigger modal -->
+                         <button type="" class="xs btn-tertiary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                             <span class="fa-regular fa-eye"></span>View
+                         </button>
+                         <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                            <div class="modal-dialog modal-lg">
+                              <div class="modal-content">
+                               
+                                <div class="modal-body ">
+                                    <div class="card shadow p-4">
+                                        <div class="row align-items-center">
+                                            <aside class="col-md-3">
+                                                <a href="#">
+                                                    <img src="../../assets/img/shop/item-1.png" alt="premium watch">
+                                                </a>
+                                            </aside> <!-- col.// -->
+                                            <div class="col-md-6">
+                                                <div class="info-main">
+                                                    <a href="#" class="h5 title"> Apple Watch Series 3 </a>
+                                                    <div class="d-flex my-3">
+                                                        <span class="star fas fa-star text-warning me-1"></span> 
+                                                        <span class="star fas fa-star text-warning me-1"></span> 
+                                                        <span class="star fas fa-star text-warning me-1"></span> 
+                                                        <span class="star fas fa-star text-warning me-1"></span> 
+                                                        <span class="star fas fa-star text-warning"></span> 
+                                                        <span class="badge badge-pill badge-gray ms-2">4.7</span>
+                                                        <span class="small text-success ms-3"><span class="fas fa-shopping-cart me-1"></span>150 orders</span>
+                                                    </div>
+                                                    <p>Monitor your health. Track your workouts. Get the motivation you need to achieve your fitness goals. And stay connected to the people and information you care about.</p>
+                                                </div>
+                                            </div> 
+                                            <div class="col-12 col-md-3">
+                                                <div class="d-flex align-items-center">
+                                                    <span class="h5 mb-0 text-gray text-through me-2">
+                                                        $299.00
+                                                    </span>
+                                                    <span class="h6 mb-0 text-danger">$199.00</span>
+                                                </div> <!-- info-price-detail // -->
+                                                <span class="text-success small"><span class="fas fa-shipping-fast me-1"></span>Free shipping</span>
+                                                <div class="d-grid gap-2 mt-4">
+                                                    <a class="btn btn-tertiary btn-sm" href="#">
+                                                        Details
+                                                    </a>
+                                                    <a href="#" class="btn btn-tertiary btn-sm"><span class="fa fa-heart me-1"></span> 
+                                                        Wishlist
+                                                    </a>
+                                                </div>
+                                            </div> 
+                                        </div> 
+                                    </div>
+                                </div>
+                                <div class="modal-footer">
+                                  <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                  <button type="button" class="btn btn-primary">Save changes</button>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                                                
+                                            </a>
+                                       </div>
+                                   </div>
+                               </div> 
+                             
+                           </div>
+                          {%endfor%}
+                           
+                         
+                         </div>
+</section>
+
+
+
+{%extends 'main/index.html'%}
+{%block body%}
+{% load static%}
+<section class="section-padding">
+    <div class="container">
+        <div class="row">
+            <div class="col-12 text-center" data-aos="fade-down" data-aos-delay="150">
+                <div class="section-title">
+                    <h1 class="display-4 fw-semibold">Products</h1>
+                    <div class="line"></div>
+                   
+                </div>
+            </div>
+        </div>
+        <div class="container shadow min-vh-100 py-4">
+            <div class="row">
+                <div class="col-md-5 mx-auto">
+                   
+                    <div class="input-group">
+                        <form action="/search/" method="post">
+                        <input class="form-control border-end-0 border rounded-pill" name="query"  type="search" placeholder="Search Product" id="query"/>
+                        <span class="input-group-append">
+                            <button class="btn btn-outline-secondary bg-white border-bottom-0 border rounded-pill ms-n5" type="button">
+                                 <i style="color:#6970dd;"class="fa fa-search"></i>
+                            </button>
+                        </form>
+                        </span>
+                    </div>
+                </div>
+            </div>
+            <br>
+        <div class="row">
+          <div class="col-sm-5">
+            <div class="card">
+              <div class="card-body">
+                <div class="row">
+                  <div class="col-12 ">
+                     <div class="card shadow">
+                         <div class="card-body">
+                             <h3 class="h5 card-title">Categories</h3>
+                             <div class="row">
+                                 <div class="col">
+                                  <div class="col-md-6 me-2">
+                                         
+                                        <li><a style="color:orange;" href="#" class="selected m-8">All</a></li>
+                                     </div>
+                                 </div>
+                                
+                                 <div class="col-12">
+                                  <div class="col-md-6 me-2">
+                                      {% for cat in categories%}
+                                      <li ><a style="color:orange;" href="/products/?categories={{cat.id}}" class="selected m-8">{{cat.name}}</a></li>
+                                      {%endfor%}
+                                     </div>
+                                 </div>
+                                
+                             </div>
+                         </div>
+                     </div>
+                 </div>
+             </div>
+             <div class="row">
+              <div class="col-12 ">
+                  <div class="card shadow">
+                      <div class="card-body">
+                          <h3 class="h5 card-title">Price range</h3>	
+                          <!-- Simple slider -->
+                          <div class="input-slider-container">
+                              <div id="input-slider-ecommerce" class="input-slider" data-range-value-min="100" data-range-value-max="500"></div>
+                              <!-- Input slider values -->
+                              <div class="row mt-3 d-none">
+                                  <div class="col-6">
+                                      <span id="input-slider-value" class="range-slider-value" data-range-value-low="200"></span>
+                                  </div>
+                              </div>
+                          </div>
+                          <!-- End of Slider -->
+                          <div class="d-flex mb-3">
+                              <div class="col-md-6 me-2">
+                                {% for f_price in filter_price%}
+                                <li ><a style="color:orange;" href="#" class="selected m-8">{{f_price.price}}</a></li>
+                                {%endfor%}
+                          </div>
+                        </div>
+                      </div>
+                  </div>
+              </div>
+          </div>
+          <div class="row">
+            <div class="col-12 ">
+               <div class="card shadow">
+                   <div class="card-body">
+                       <h3 class="h5 card-title">Colors</h3>
+                       <div class="row mb-3">
+                           <div class="col-md-6">
+                               <div class="">
+                                {% for col in color %}
+                                  <li> <href ="#" style="background-color:{{col.code}}"></a></li>
+                                {%endfor%}
+                               </div>
+                           </div>
+                          
+                           
+                           
+                          
+                       </div>
+                      
+                   </div>
+               </div>
+           </div>
+       </div>
+       <div class="row">
+        <div class="col-12">
+           <div class="card shadow">
+               <div class="card-body">
+                   <h3 class="h5 card-title">Product type</h3>
+                  
+                   <ul class="">
+                    <li><a href ="/products/"  style="color:orange;" class="selcected m-8" >All Brands</a></li>
+                    {% for i in brand %}
+                    <li><a href ="/products/?brand={{i.id}}" style="color:orange;" class="selcected m-8" >{{i.name}}</a></li>
+                    {%endfor%}
+                      
+                   </ul>
+               </div>
+           </div>
+       </div>
+   </div>
+            </div>
+            </div>
+          </div>
+          <div class="col-sm-7">
+            <div class="card">
+              <div class="card-body">
+                <div class="card" style="width: 18rem;">
+                    <div class="card shadow">
+                        <img src="../../assets/img/shop/item-1.png" alt="black watch"> 
+                        <div class="card-footer border-top border-gray-300 p-4">
+                            <a href="#" class="h5">Apple Watch Series 3</a>
+                            <h3 class="h6 fw-light text-gray mt-2">Space Gray Aluminum Case with Black Sport Band</h3>
+                            
+                            <div class="d-flex justify-content-between align-items-center mt-3">
+                                <span class="h5 mb-0 text-gray">$299.00</span> 
+                                <a class="btn btn-xs btn-tertiary" href="#">
+                                    <span class="fas fa-cart-plus me-2"></span> Add to cart
+                                </a>
+                            </div>
+                        </div>
+                    </div> 
+                    </div>
+                  </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <br>
+      </div>
+      
+{%endblock%}

@@ -1,0 +1,228 @@
+{%extends 'main/index.html'%}
+{%block body%}
+{% load static%}
+<style>
+    ul {
+        list-style-type: none;
+      }
+      /* General Styling */
+.card {
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    overflow: hidden;
+    transition: all 0.3s ease;
+}
+
+.card-body {
+    padding: 15px;
+}
+
+.card-img-top {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+}
+
+.card-title {
+    font-size: 14px;
+    color: #777;
+}
+
+.card h5 {
+    font-size: 16px;
+    font-weight: bold;
+    margin-top: 10px;
+    color: #333;
+}
+
+.card p {
+    font-size: 14px;
+    color: #333;
+}
+
+.card .btn {
+    background-color: #6970dd;
+    color: white;
+    padding: 10px 15px;
+    font-size: 14px;
+    border-radius: 5px;
+    text-align: center;
+    text-decoration: none;
+}
+
+.card .btn:hover {
+    background-color: ##6970dd;
+    color: white;
+}
+@media (max-width: 767px) {
+    .row {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+    
+    .col {
+        flex: 1 1 100%;
+        padding: 10px;
+    }
+
+    .card-body {
+        padding: 12px;
+    }
+
+    .card-title {
+        font-size: 12px;
+    }
+
+    .card h5 {
+        font-size: 14px;
+        margin-top: 8px;
+    }
+
+    .card p {
+        font-size: 12px;
+    }
+
+    .card .btn {
+        width: 100%;
+        margin-top: 10px;
+    }
+    .row-cols-1 {
+        margin-left: 5px;
+        margin-right: 5px;
+    }
+
+    .card-img-top {
+        max-height: 200px;
+        object-fit: cover;
+    }
+}
+
+
+@media (min-width: 768px) and (max-width: 991px) {
+    .col {
+        flex: 1 1 45%;
+    }
+
+    .card .btn {
+        width: 100%;
+    }
+}
+
+</style>
+<section class="section-padding">
+    <div class="container">
+        <div class="row">
+            <div class="col-12 text-center" data-aos="fade-down" data-aos-delay="150">
+                <div class="section-title">
+                    <h1 class="display-4 fw-semibold">Products</h1>
+                    <div class="line"></div>
+                   
+                </div>
+            </div>
+        </div>
+    </div>
+   
+ <div class="container">
+    <div class="mb-3" data-aos="fade-up" data-aos-delay="650">
+
+        <div class="input-group">
+            <form action="/search/" method='get'>
+            <input type="text" class="form-control" id="query" placeholder="Search product" name="query"  aria-label="Search" aria-describedby="basic-addon2">
+            
+            </form>
+        </div>
+    </div>
+    <br>
+    <div class="row">
+        <div class="col-sm-4" data-aos="fade-down" data-aos-delay="650">
+          <div class="">
+            <div class="">
+                <ul class="list-group">
+                    <li class="list-group-item"><h4>Categories</h4>
+                    <ul>
+                        <li><a style="color:#6970dd" href="#" class="selected m-8">All Products</a></li>
+                        
+                        {% for cat in categories%}
+                            <li ><a style="color:#6970dd" href="/products/?categories={{cat.id}}" class="selected m-8">{{cat.name}}</a></li>
+                        {%endfor%}
+                    </ul>
+                    </li>
+                    <li class="list-group-item"><h4>Price Range</h4>
+                    <ul>
+                        <li>
+                            {% for f_price in filter_price%}
+                            <li ><a style="color:#6970dd" href="#" class="selected m-8">{{f_price.price}}</a></li>
+                            {%endfor%}
+                           
+                        </li> 
+                    </ul>
+                    </li>
+                    <li class="list-group-item"><h4>Colors</h4>
+                        <ul>
+                            <li>
+                                {% for col in color %}
+                                <li> <href ="#" style="background-color:{{col.code}}"></a></li>
+                              {%endfor%}
+                               
+                            </li> 
+                        </ul>
+                    </li>
+                    <li class="list-group-item"><h4>Product Type</h4>
+                        
+                        <ul class="">
+                            <li><a href ="/products/"  style="color:#6970dd" class="selcected m-8" >All Brands</a></li>
+                            {% for i in brand %}
+                            <li><a href ="/products/?brand={{i.id}}" style="color:#6970dd" class="selcected m-8" >{{i.name}}</a></li>
+                            {%endfor%}
+                            
+                        </ul>
+                    </li>
+                   
+                </ul>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-sm-8">
+          <div class="card" data-aos="fade-down" data-aos-delay="650">
+            <div class="card-body">
+               
+                <section id="product1" class="section-p1">
+    
+                    <div class="pro-container "data-aos="fade-down" data-aos-delay="150">
+                        {% for prod in product%}
+                        <div class="pro" >
+                            <h4><span class="badge bg-secondary">{{prod.condition}}</span></h4>
+                            <a href="/products/{{prod.id}}" class="image">
+                                <img  src="/{{prod.image}}">
+                        <div class="des">
+                            <span>{{prod.Category}}</span>
+                            <h5>{{prod.name | truncatewords:8}}</h5>
+                            <div class="star">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            </div>
+                            <h4>₹ {{prod.price}}</h4>
+                        </div> 
+                       
+                        <a href="{% url 'cart_add' prod.id %}"><i class="fal fa-shopping-cart cart"></i></a>
+                       
+                    </div>
+                    {%endfor%}
+                </div>
+            </div>
+        </section>
+                      </div>
+               
+                </section>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <br>
+{%endblock%}

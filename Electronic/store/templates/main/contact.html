@@ -1,0 +1,43 @@
+{%extends 'main/index.html'%}
+{%block body%}
+{% load static%}
+<section class="section-padding bg-light" id="contact">
+    <div class="container">
+        <div class="row">
+            <div class="col-12 text-center" data-aos="fade-down" data-aos-delay="150">
+                <div class="section-title">
+                    <h1 class="display-4 text-white fw-semibold">Send A Quest</h1>
+                    <div class="line bg-white"></div>
+                   
+            </div>
+        </div>
+        <div class="row justify-content-center" data-aos="fade-down" data-aos-delay="250">
+            <div class="col-lg-8">
+                <form action="/contact/" class="row g-3 p-lg-5 p-4 bg-white theme-shadow">
+                    {% csrf_token %}
+                    <div class="form-group col-lg-12">
+                        <input type="name" class="form-control" name="name" placeholder="Enter Name">
+                    </div>
+                   
+                    <div class="form-group col-lg-12">
+                        <input type="email" class="form-control" name="email" placeholder="Enter Email address">
+                    </div>
+                    <div class="form-group col-lg-12">
+                        <input type="subject" class="form-control" name="subject" placeholder="Enter subject">
+                    </div>
+                    <div class="form-group col-lg-12">
+                        <textarea name="message" rows="5" class="form-control" placeholder="Enter Message"></textarea>
+                    </div>
+                    <div class="form-group col-lg-12 d-grid">
+                        <button class="btn btn-brand">Send Message</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+
+
+{%endblock%}

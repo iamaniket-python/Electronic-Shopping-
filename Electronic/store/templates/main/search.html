@@ -1,0 +1,72 @@
+{%extends 'main/index.html'%}
+{%block body%}
+{% load static%}
+
+<div class="container">
+    <h2>Search Result :</h2>
+    {% if product|length < 1 %}
+    <p> Sorry :( No Product Found<p>
+    {%endif%}
+</div>
+ 
+<section class="section-padding">
+    <div class="container">
+        <div class="row">
+            <div class="col-12 text-center" data-aos="fade-down" data-aos-delay="150">
+                <div class="section-title">
+                    <h1 class="display-4 fw-semibold">Products</h1>
+                    <div class="line"></div>
+                   
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="mb-3" data-aos="fade-up" data-aos-delay="650">
+    
+            <div class="input-group">
+                <form action="/search/" method='get'>
+                <input type="text" class="form-control" id="query" placeholder="Search product" name="query"  aria-label="Search" aria-describedby="basic-addon2">
+                
+                </form>
+            </div>
+        </div>
+        <br>
+        <section id="product1" class="section-p1">
+    
+            <div class="pro-container "data-aos="fade-down" data-aos-delay="150">
+                {% for prod in product%}
+                <div class="pro" >
+                    <h4><span class="badge bg-secondary">{{prod.condition}}</span></h4>
+                    <a href="/products/{{prod.id}}" class="image">
+                        <img  src="/{{prod.image}}">
+                <div class="des">
+                    <span>{{prod.Category}}</span>
+                    <h5>{{prod.name | truncatewords:8}}</h5>
+                    <div class="star">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    </div>
+                    <h4>₹ {{prod.price}}</h4>
+                </div> 
+               
+                <a href="{% url 'cart_add' prod.id %}"><i class="fal fa-shopping-cart cart"></i></a>
+               
+            </div>
+            {%endfor%}
+        </div>
+    </div>
+</section>
+    </div>
+</section>
+
+
+
+
+
+
+{%endblock%}

@@ -1,0 +1,56 @@
+{%extends 'main/index.html'%}
+{%block body%}
+{% load static%}
+
+
+<section class="section-padding bg-light" id="contact">
+    <div class="container">
+        <div class="row">
+            <div class="col-12 text-center" data-aos="fade-down" data-aos-delay="150">
+                <div class="section-title">
+                    <h1 class="display-4 text-white fw-semibold">Register For Free</h1>
+                    <div class="line bg-white"></div>
+                   
+                </div>
+            </div>
+        </div>
+        <div class="row justify-content-center" data-aos="fade-down" data-aos-delay="250">
+            <div class="col-lg-8">
+                <form action="{% url 'Singup'%}" method="post" class="row g-3 p-lg-5 p-4 bg-white theme-shadow">
+                    {% csrf_token %}
+                        <div class="mb-3" >
+                          <label for="exampleInputusername" class="form-label">Username</label>
+                          <input  type="username" name="username" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                         
+                        </div>
+                        <div class="mb-3" >
+                            <label for="exampleInputtext" class="form-label">First Name</label>
+                            <input  type="text" name="first_name" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                            <label for="exampleInputuserlast_name" class="form-label">Last name</label>
+                            <input  type="text" name="last_name" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                           
+                          </div>
+                         
+                        <div class="mb-3">
+                            <label for="exampleInputEmail1" class="form-label">Email</label>
+                            <input type="email" name="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                            <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
+                          </div>
+                        <div class="mb-3">
+                          <label for="exampleInputPassword1" class="form-label">Password</label>
+                          <input type="password" class="form-control" name="pass1" id="exampleInputPassword1">
+                          <label for="exampleInputPassword" class="form-label">Confirm Password</label>
+                          <input type="password" class="form-control" name="pass2" id="exampleInputPassword1">
+                        </div>
+                     
+                      
+                        
+                        <button type="submit" class="btn btn-primary">Register</button>
+                      
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
+
+{%endblock%}
